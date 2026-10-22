@@ -1,0 +1,9 @@
+# Compiled programs
+*.exe
+*.out
+budget_app
+# Local user data (keep sample files tracked if desired)
+# data/transactions.csv
+# data/budget.txt
+.vscode/
+.DS_Store

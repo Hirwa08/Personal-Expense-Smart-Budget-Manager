@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Budget Manager</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <header class="topbar">
+        <div class="brand"><div class="brand-icon">₹</div><div><strong>Budget Buddy</strong><small>Personal Expense Manager</small></div></div>
+        <span class="status"><span></span> Local & private</span>
+    </header>
+    <main class="container">
+        <section class="welcome">
+            <div><p class="eyebrow">YOUR MONEY, MADE SIMPLE</p><h1>Know where your money goes.</h1>
+            <p class="muted">Keep track of your income, expenses and monthly budget in one place.</p></div>
+            <div class="welcome-art">₹</div>
+        </section>
+        <section class="summary-grid">
+            <article class="summary-card"><span>Total income</span><strong id="income">₹0.00</strong><small>Money received</small></article>
+            <article class="summary-card"><span>Total expenses</span><strong id="expenses">₹0.00</strong><small>Money spent</small></article>
+            <article class="summary-card"><span>Current balance</span><strong id="balance">₹0.00</strong><small>Income minus expenses</small></article>
+            <article class="summary-card budget-card"><span>Budget remaining</span><strong id="remaining">₹5,000.00</strong><small id="budget-label">Monthly spending limit</small></article>
+        </section>
+        <section class="content-grid">
+            <article class="panel">
+                <div class="panel-heading"><div><p class="eyebrow">NEW ENTRY</p><h2>Add a transaction</h2></div><div class="circle">＋</div></div>
+                <form id="transaction-form">
+                    <label>Transaction type<select name="type" required><option value="expense">Expense</option><option value="income">Income</option></select></label>
+                    <label>Title<input name="title" placeholder="e.g. Lunch, Part-time work" required maxlength="70"></label>
+                    <label>Category<select name="category" required><option>Food</option><option>Travel</option><option>Education</option><option>Shopping</option><option>Bills</option><option>Entertainment</option><option>Salary</option><option>Allowance</option><option>Other</option></select></label>
+                    <div class="two-fields"><label>Amount (₹)<input name="amount" type="number" min="0.01" step="0.01" placeholder="250" required></label>
+                    <label>Date<input name="date" id="date" type="date" required></label></div>
+                    <button class="primary" type="submit">Add transaction <span>→</span></button>
+                    <p class="message" id="form-message" aria-live="polite"></p>
+                </form>
+            </article>
+            <article class="panel">
+                <div class="panel-heading"><div><p class="eyebrow">MONTHLY PLAN</p><h2>Set your budget</h2></div><div class="circle">◎</div></div>
+                <p class="muted">Choose the maximum amount you want to spend. Your remaining budget updates automatically.</p>
+                <form id="budget-form">
+                    <label>Monthly budget (₹)<input name="amount" id="budget-input" type="number" min="0" step="0.01" required></label>
+                    <button class="secondary" type="submit">Save budget</button>
+                    <p class="message" id="budget-message" aria-live="polite"></p>
+                </form>
+                <div class="tip"><strong>Small tip</strong><p>Recording even small purchases helps you understand your spending habits.</p></div>
+            </article>
+        </section>
+        <section class="panel transactions-panel">
+            <div class="panel-heading"><div><p class="eyebrow">YOUR ACTIVITY</p><h2>Recent transactions</h2></div><span class="count" id="transaction-count">0 entries</span></div>
+            <div class="table-wrap"><table><thead><tr><th>Transaction</th><th>Category</th><th>Date</th><th>Amount</th></tr></thead><tbody id="transaction-list"><tr><td colspan="4" class="empty">No transactions yet. Add your first entry above.</td></tr></tbody></table></div>
+        </section>
+        <footer>Budget Buddy · Student C++ OOP Project · Your data stays on this computer</footer>
+    </main>
+    <script src="/app.js"></script>
+</body>
+</html>
